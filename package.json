@@ -19,5 +19,17 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.6",
     "sequelize": "^6.3.5"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hugo-Rodriguez/gestionClase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hugo-Rodriguez/gestionClase/issues"
+  },
+  "homepage": "https://github.com/Hugo-Rodriguez/gestionClase#readme",
+  "description": ""
 }

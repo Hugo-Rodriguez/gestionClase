@@ -11,4 +11,5 @@ router.get('/demo', function(req, res, next) {
   res.render('demo', { attr: 'Controlador CLientes' });
 });
 
+// prueba
 module.exports = router;
