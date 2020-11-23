@@ -1,0 +1,34 @@
+<h1 class="text-center">Lista de Usuarios</h1>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">DNI</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">A/D</th>
+      <th scope="col"><a class="btn btn-primary btn-sm" href="/usuario/nuevo" role="button">Nuevo</a></th>
+    </tr>
+  </thead>
+  <tbody>    
+
+        {{#each usuarios}}
+        <tr>
+            <td>{{DNI}}</td>
+            <td>{{nombre}}</td>
+             <td>{{apellido}}</td>
+            <td>{{email}}</td>
+            <td>{{activo}}</td>
+            
+            <td><a class="btn btn-primary btn-sm" href="/usuario/{{DNI}}" role="button">Editar</a>            
+            <a class="btn btn-danger btn-sm" name="operacion" value="Borrar" href="/usuario/borrar/{{DNI}}" role="button">Borrar</a></td>
+
+        </tr>
+        {{/each}}
+       
+
+  </tbody>
+</table>
+
