@@ -1,38 +1,36 @@
-var express = require('express');
-// var Autor = require('../models/autor');
-var Empleado = require('../models/models.clientes');
+const express = require("express");
+const router = express.Router();
+const sequelize = require('../database/db');
 
-var router = express.Router();
+// var Autor = require('../models/autor');
+var Usuarios = require('../models/models.usuarios');
+
 
 router.get('/', function (req, res, next) {
     res.render("loginEmpleado");
+    
 });
 
+
 router.post('/', async function (req, res) {
-    let {
-        DNI,
-        Password
-    } = req.body;
-    let emple = await Empleado.findOne({
-        attributes: ['DNI', 'password', 'nombre', 'email'],
+    let {DNI, password} = req.body;
+    let usuario = await Usuarios.findOne({
+        attributes: ['DNI', 'nombre', 'apellido'],
         where: {
             DNI,
             password
         }
     });
-    if (emple) {
-        req.session.emple = emple;
-        //se fuerza el cierre de la sesión de usuario
-        req.session.usuario = undefined;
-         res.redirect("/cliente/" + DNI);
-        
-        
 
-
+    
+    
+    if (usuario) {
+        
+        //  res.json(usuario);        
+        req.session.usuario = usuario;        
+        res.redirect("/usuario/listado" );
     } else {
-        res.render("loginEmpleado", {
-            error: "DNI o contraseña incorrectos"
-        });
+        res.render("loginEmpleado", {error: "DNI o contraseña incorrectos"});
     }
 })
 
@@ -44,3 +42,12 @@ router.get('/logoutEmple', function (req, res) {
 
 
 module.exports = router;
+
+
+/* <script>
+
+function desactivar(){
+  document.getElementById('btnUsuario').style.display = 'none';
+}
+
+</script> */

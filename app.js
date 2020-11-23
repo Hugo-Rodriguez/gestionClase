@@ -35,15 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-
-// rutas
-app.use('/', indexRouter);
-app.use('/cliente', clientesRouter);
-app.use('/usuario', usuariosRouter);
-app.use('/loginEmpleado', loginRouter);
-
 
 // Los middlewares cookieParser y cookieSession se encargan,
 //  * respectivamente, de procesar las cookies y de gestionar la información de la
@@ -56,11 +47,16 @@ app.use('/loginEmpleado', loginRouter);
 //  * la cookie será hasta el cierre de la sesión (cerrar navegador/salir del sistema).
 
 app.use(cookieParser());
-app.use(cookieSession({   name: 'sesion', //nombre de la cookie 
+app.use(cookieSession({ name: 'sesion', //nombre de la cookie 
 keys: ["secret1234", "secret1234"],  //claves de firma 
 maxAge: 5 * 60 * 1000//caducidad [milisegundos] 
 })) 
 
+// rutas
+app.use('/', indexRouter);
+app.use('/cliente', clientesRouter);
+app.use('/usuario', usuariosRouter);
+app.use('/loginEmpleado', loginRouter);
 
 
 // catch 404 and forward to error handler

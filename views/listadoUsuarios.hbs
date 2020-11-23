@@ -8,6 +8,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">EMAIL</th>
+      <th scope="col">Tipo</th>
       <th scope="col">A/D</th>
       <th scope="col"><a class="btn btn-primary btn-sm" href="/usuario/nuevo" role="button">Nuevo</a></th>
     </tr>
@@ -20,7 +21,12 @@
             <td>{{nombre}}</td>
              <td>{{apellido}}</td>
             <td>{{email}}</td>
-            <td>{{activo}}</td>
+            <td>{{tipo}}</td>
+            {{#if activo}}
+              <td>Activo</td>
+            {{else}}
+              <td>Desactivado</td>
+            {{/if}}
             
             <td><a class="btn btn-primary btn-sm" href="/usuario/{{DNI}}" role="button">Editar</a>            
             <a class="btn btn-danger btn-sm" name="operacion" value="Borrar" href="/usuario/borrar/{{DNI}}" role="button">Borrar</a></td>

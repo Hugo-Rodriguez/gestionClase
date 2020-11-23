@@ -25,10 +25,10 @@ router.get("/nuevo", (req, res) =>  res.render("frmUsuarios"));
 
 router.post('/nuevo', async function (req, res) {
   // Obtención de los datos del formulario
-  let {DNI,nombre, apellido, email, direccion, localidad, cp, provincia, password, repassword, activo} = req.body;
+  let {DNI,nombre, apellido, email, direccion, localidad, cp, provincia, password, repassword, activo, tipo} = req.body;
 
   if (password == repassword) {
-    let usuario = new Usuarios({DNI,nombre, apellido, email, direccion, localidad, cp, provincia, activo,password});
+    let usuario = new Usuarios({DNI,nombre, apellido, email, direccion, localidad, cp, provincia, activo,password, tipo});
     try {
       await usuario.save();
       res.redirect("/");
@@ -82,7 +82,8 @@ router.post("/:id", (req, res) => {
         telefono: req.body.telefono,
         password: req.body.password,
         repassword: req.body.password,
-        activo: req.body.activo
+        activo: req.body.activo,
+        tipo : req.body.tipo
       },
       {
         where: {
@@ -90,7 +91,8 @@ router.post("/:id", (req, res) => {
         },
       }
     )
-      .then((resultado) => {        
+      .then((resultado) => {     
+      
         res.redirect("/usuario/listado");
       })
       .catch((err) => {

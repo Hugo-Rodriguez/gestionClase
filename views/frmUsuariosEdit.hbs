@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="col">
+            <div class="col-3">
 
 
                 {{#if  usuarios.activo }}
@@ -110,6 +110,18 @@
 
                 {{/if}}
             </div>
+
+            <div class="col-3">
+                <div class="form-group border border-success p-2">
+                    <label class="text-center"for="exampleFormControlSelect1">Tipo de Usuario</label>
+                    <select class="form-control" name="tipo" id="exampleFormControlSelect1">                        
+                         <option value="{{usuarios.tipo}}" selected="selected">{{usuarios.tipo}}</option>                        
+                        <option value="Basico">Basico</option>
+                        <option value="Admin">Admin</option>
+                    </select>
+                </div>
+            </div>
+
 
 
 
@@ -148,6 +160,9 @@
 
 
 </div>
+
+<h4>{{session.usuario.nombre}}</h4>
+<h3>uuu</h3>
 
 {{#if error}}
 <p>{{error}}</p>
