@@ -36,12 +36,19 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> --}}
     </ul>
-    {{#if session}}
-    <H6>{{session.usuario.nombre}}</H6>
-    {{/if}}
-    <form class="form-inline my-2 my-lg-0">
+    
+    <form class="form-inline my-2 my-lg-0">       
+
       {{!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
+       {{#if session.usuario}}
+         <span class="align-baseline"><p  class="mr-3 text-light bg-dark text-uppercase">{{session.usuario.nombre}}</p></span>
+      
+      {{/if}}
+
       <a class="btn btn-primary" onclick="desactivar()"  id="btnCliente" href="/loginEmpleado" role="button">Clientes</a>
+
+
+
       <a class="btn btn-success" id="btnUsuario" href="#" role="button">Usuarios</a>
       {{!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clientes</button>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Usuarios</button> --}}

@@ -19,7 +19,7 @@ router.get('/',  (req, res ) =>
 
 // add Uusario
 
-router.get("/nuevo", (req, res) =>  res.render("frmUsuarios"));
+router.get("/nuevo", (req, res) =>  res.render("usuarios/frmUsuarios"));
 
 /************** */
 
@@ -33,10 +33,10 @@ router.post('/nuevo', async function (req, res) {
       await usuario.save();
       res.redirect("/");
     } catch(err) {
-      res.render("frmUsuarios", {error: err.message})        
+      res.render("usuarios/frmUsuarios", {error: err.message})        
     }
   } else {
-    res.render("frmUsuarios", {error: "Password no coincide"})
+    res.render("usuarios/frmUsuarios", {error: "Password no coincide"})
     //TODO: mostrar error
   }
 })
@@ -46,7 +46,7 @@ router.post('/nuevo', async function (req, res) {
 router.get("/listado", (req, res) => {
   let usuarios = Usuarios.findAll().then((usuarios) => {
   
-    res.render("listadoUsuarios", { usuarios });
+    res.render("usuarios/listadoUsuarios", { usuarios });
   });
 });
 
@@ -57,7 +57,7 @@ router.get("/:id", (req, res) => {
       console.log(usuarios);
       console.log("ACTIVO: ",usuarios.activo);     
 
-      res.render('frmUsuariosEdit', {usuarios})
+      res.render('usuarios/frmUsuariosEdit', {usuarios})
     })    
     .catch((err) => {
       res.json(err);
@@ -105,9 +105,6 @@ router.post("/:id", (req, res) => {
     //   var error = 'La contraseñas no coinciden';
     // }  
 });
-
-
-
 
 // DELETE un Usuario
 router.get("/borrar/:id", (req, res) => {

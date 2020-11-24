@@ -12,14 +12,14 @@ router.get('/',  (req, res ) =>
     .then(clientes => {
       // console.log(clientes);
       // res.sendStatus(200);
-      res.render('/', {clientes})
+      res.render('/', {clientes, session:req.session})
     })
     .catch(err => console.log("Error" + err)));
 
 
 // add CLiente
 
-router.get("/nuevo", (req, res) =>  res.render("frmClientes"));
+router.get("/nuevo", (req, res) =>  res.render("clientes/frmClientes",{ session:req.session}));
 
 /************** */
 
@@ -33,21 +33,19 @@ router.post('/nuevo', async function (req, res) {
       await cliente.save();
       res.redirect("/");
     } catch(err) {
-      res.render("frmClientes", {error: err.message})        
+      res.render("clientes/frmClientes", {error: err.message})        
     }
   } else {
-    res.render("frmClientes", {error: "Password no coincide"})
+    res.render("clientes/frmClientes", {error: "Password no coincide"})
     //TODO: mostrar error
   }
 })
-
-
 
 // READ -- Listado de todos
 router.get("/listado", (req, res) => {
   let clientes = Clientes.findAll().then((clientes) => {
     // console.log(clientes);
-    res.render("listadoClientes", { clientes });
+    res.render("clientes/listadoClientes", { clientes, session:req.session });
   });
 });
 
@@ -59,7 +57,7 @@ router.get("/:id", (req, res) => {
       console.log("ACTIVO: ",clientes.activo);
       //  res.render('frmClientes', {clientes})
 
-      res.render('frmClientesEdit', {clientes})
+      res.render('clientes/frmClientesEdit', {clientes , session:req.session})
     })    
     .catch((err) => {
       res.json(err);
@@ -93,7 +91,7 @@ router.post("/:id", (req, res) => {
       }
     )
       .then((resultado) => {        
-        res.redirect("/cliente/listado");
+        res.redirect("cliente/listado",{ session:req.session});
       })
       .catch((err) => {
         res.json({
@@ -106,50 +104,6 @@ router.post("/:id", (req, res) => {
     // }  
 });
 
-// router.post("/editar/:id", (req, res) => {
-//   if (req.body.operacion == "Actualizar") {
-//     Clientes.update(
-//       {
-//         nombre: req.body.nombre,
-//         apellido: req.body.apellido,
-//         email: req.body.email,
-//         direccion: req.body.direccion,
-//         localidad: req.body.localidad,
-//         cp: req.body.cp,
-//         provincia: req.body.provincia,
-//         telefono: req.body.telefono,
-//         password: req.body.password,
-//         repassword: req.body.password,
-//         activo: req.body.activo,
-//       },
-//       {
-//         where: {
-//           DNI: req.params.id,
-//         },
-//       }
-//     )
-//       .then((resultado) => {
-//         // res.json(resultado);
-//         res.redirect("/")
-//       })
-//       .catch((err) => {
-//         res.json({
-//           status: 303,
-//           err,
-//         });
-//       });
-//   } else {
-//     Clientes.destroy({
-//       where: {
-//         DNI: req.params.id,
-//       },
-//     }).then((resultado) => {
-//       res.json(resultado);
-//     });
-//   }
-// });
-
-
 // DELETE un cliente
 router.get("/borrar/:id", (req, res) => {
   Clientes.findByPk(req.params.id).then((clientes) => {
@@ -159,11 +113,11 @@ router.get("/borrar/:id", (req, res) => {
         DNI: req.params.id,
       },
     }).then((resultado) => {
-      res.redirect("/cliente/listado");
+      res.redirect("cliente/listado",{ session:req.session});
     })
     .catch((err) => {
       res.json({
-        status: 303,
+        // status: 303,
         err,
       });
     });  ;

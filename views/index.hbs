@@ -3,6 +3,10 @@
     <h1 class="display-4">{{ title}}</h1>
     <p class="lead"> Proyecto:  {{ title }}.</p>
   </div>
+
+  {{#if session }}
+    <h4>{{session.usuario.nombre}}</h4>
+  {{/if}}
   
 </div>
 

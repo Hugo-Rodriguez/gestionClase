@@ -7,8 +7,7 @@ var Usuarios = require('../models/models.usuarios');
 
 
 router.get('/', function (req, res, next) {
-    res.render("loginEmpleado");
-    
+    res.render("loginEmpleado");    
 });
 
 
@@ -20,15 +19,11 @@ router.post('/', async function (req, res) {
             DNI,
             password
         }
-    });
-
-    
-    
-    if (usuario) {
-        
+    });   
+        if (usuario) {        
         //  res.json(usuario);        
         req.session.usuario = usuario;        
-        res.redirect("/usuario/listado" );
+        res.redirect("/");
     } else {
         res.render("loginEmpleado", {error: "DNI o contraseña incorrectos"});
     }

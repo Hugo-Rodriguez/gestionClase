@@ -1,6 +1,8 @@
 <h1 class="text-center">Lista de Clientes</h1>
 
-
+{{#if session}}        
+        	<h4>{{session.usuario.Nombre}}</h4>
+			{{/if}}
 <table class="table">
   <thead class="thead-dark">
     <tr>
