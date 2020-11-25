@@ -1,9 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("../img/wallpaperflare.com_wallpaper.jpg");
+  /* background-image: url("../img/wallpaperflare.com_wallpaper.jpg"); */
 }
 
 a {
   color: #00B7FF;
+}
+
+img {
+  width: 200px;
 }

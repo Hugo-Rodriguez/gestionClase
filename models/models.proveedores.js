@@ -3,9 +3,9 @@ const { Model, DataTypes } = require("sequelize");
 // const Sequelize = require('sequelize');
 const sequelize = require("../database/db");
 
-class Clientes extends Model {}
+class Proveedor extends Model {}
 
-Clientes.init(
+Proveedor.init(
   {
     DNI: {
       type: DataTypes.STRING,
@@ -24,6 +24,10 @@ Clientes.init(
         //   msg: "El DNI tiene que tener al menos 3 caracteres",
         // }
       // },
+    },
+    razonsocial: {
+      type: DataTypes.STRING(100),
+      allowNull: false,      
     },
     nombre: {
       type: DataTypes.STRING(50),
@@ -75,23 +79,15 @@ Clientes.init(
           msg: "El campo tiene que ser un correo valido",
         },
       },
-    },
-    password: {
-      type: DataTypes.STRING(42),
-      allowNull: true,
-    },
-    activo: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    }
+    }    
   },
+  
   {
     sequelize,
-    modelName: "clientes",
-    tableName: 'clientes',
+    modelName: "proveedor",
+    tableName: 'proveedor',
     timestamps: false,
   }
 );
 
-module.exports = Clientes;
+module.exports = Proveedor;

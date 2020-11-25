@@ -89,12 +89,17 @@ Usuarios.init(
       type: DataTypes.ENUM('Basico','Admin'),
       allowNull: false,
       defaultValue: 'Basico'
+    },  
+    foto: {
+      type: DataTypes.STRING,
+      allowNull: true    
     }
   },
   
   {
     sequelize,
     modelName: "usuarios",
+    tableName: 'usuarios',
     timestamps: false,
   }
 );

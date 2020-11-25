@@ -6,15 +6,9 @@ const sequelize = require('../database/db');
 const Clientes = require("../models/models.clientes");
 
 // get CLiente Lista
-router.get('/',  (req, res ) => 
-  
-  Clientes.findAll()
-    .then(clientes => {
-      // console.log(clientes);
-      // res.sendStatus(200);
-      res.render('/', {clientes, session:req.session})
-    })
-    .catch(err => console.log("Error" + err)));
+router.get('/',  (req, res ) =>   
+      res.redirect('/')    
+    );
 
 
 // add CLiente

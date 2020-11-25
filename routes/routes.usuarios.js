@@ -7,14 +7,8 @@ const Usuarios = require("../models/models.usuarios");
 
 // get Usuario Lista
 router.get('/',  (req, res ) => 
-  
-  Usuarios.findAll()
-    .then(usuarios => {
-      // console.log(clientes);
-      // res.sendStatus(200);
-      res.render('/', {usuarios})
-    })
-    .catch(err => console.log("Error" + err)));
+  res.redirect('/')
+)
 
 
 // add Uusario
@@ -25,10 +19,10 @@ router.get("/nuevo", (req, res) =>  res.render("usuarios/frmUsuarios"));
 
 router.post('/nuevo', async function (req, res) {
   // Obtención de los datos del formulario
-  let {DNI,nombre, apellido, email, direccion, localidad, cp, provincia, password, repassword, activo, tipo} = req.body;
+  let {DNI,nombre, apellido, email, direccion, localidad, cp, provincia, password, repassword, activo, tipo, foto} = req.body;
 
   if (password == repassword) {
-    let usuario = new Usuarios({DNI,nombre, apellido, email, direccion, localidad, cp, provincia, activo,password, tipo});
+    let usuario = new Usuarios({DNI,nombre, apellido, email, direccion, localidad, cp, provincia, activo,password, tipo, foto});
     try {
       await usuario.save();
       res.redirect("/");
@@ -83,7 +77,8 @@ router.post("/:id", (req, res) => {
         password: req.body.password,
         repassword: req.body.password,
         activo: req.body.activo,
-        tipo : req.body.tipo
+        tipo : req.body.tipo,
+        foto: req.body.foto
       },
       {
         where: {
@@ -124,6 +119,11 @@ router.get("/borrar/:id", (req, res) => {
       });
     });  ;
   });
+});
+
+
+router.put("/:id/imagen", (req, res) => { 
+  console.log('para subir imagen', req.body)
 });
 
 module.exports = router;

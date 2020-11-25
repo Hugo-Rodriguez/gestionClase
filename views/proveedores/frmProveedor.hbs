@@ -1,38 +1,31 @@
-{{!-- "/cliente/nuevo" --}}
+
 <form action="" method="POST">
 
     <div class="container m-4 p-2 border border-primary">
 
-        <h1 class="text-center">Registro de Usuarios</h1>
+        <h1 class="text-center">Registro de Proveedores</h1>
 
         <div class="row">
             <div class="col-3">
                 <div class="form-group">
-                    <label for="DNI">DNI:</label>
-                    <input type="Text" class="form-control" name="DNI" placeholder="DNI...." value="">
+                    <label for="DNI">CIF:</label>
+                    <input type="Text" class="form-control" name="DNI" placeholder="CIF...." value="">
                 </div>
             </div>
-
-            <div class="card col-4 " style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="razonsocial">Razon Social:</label>
+                    <input type="Text" class="form-control" name="razonsocial" placeholder="Razon Social ......" value="">
                 </div>
             </div>
-
-            <div class="form-group col-3">
-                <label for="foto">Example file input</label>
-             <input type="file" class="form-control-file"  id="foto">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                 <h4>Datos de Contacto</h4>
             </div>
-
-
         </div>
 
-
-        <div class="row">
+        <div class="row">           
             <div class="col-6">
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
@@ -94,47 +87,10 @@
                 </div>
             </div>
 
-            <div class="col-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="activo" id="inlineRadio1" checked="checked"
-                        value="1">
-                    <label class="form-check-label" for="inlineRadio1">Activo</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="activo" id="inlineRadio2" value="0">
-                    <label class="form-check-label" for="inlineRadio2">No Activo</label>
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="form-group border border-success p-2">
-                    <label class="text-center" for="exampleFormControlSelect1">Tipo de Usuario</label>
-                    <select class="form-control" name="tipo" id="exampleFormControlSelect1">
-                        <option value="Basico">Basico</option>
-                        <option value="Admin"> Admin</option>
-                    </select>
-                </div>
-
-
-            </div>
-
+           
 
         </div>
-
-        <div class="row">
-            <div class="col-3">
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" class="form-control" name="password" value="" placeholder="......">
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="form-group">
-                    <label for="repassword">Repita la contraseña:</label>
-                    <input type="password" class="form-control" name="repassword" value="" placeholder="......">
-                </div>
-            </div>
-        </div>
+       
 
         <div class="row">
             <div class="col">
@@ -152,7 +108,7 @@
 
 </div>
 
-
+ 
 
 
 {{#if error}}

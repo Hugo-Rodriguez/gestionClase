@@ -1,0 +1,37 @@
+<h1 class="text-center">Lista de Proveedores</h1>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">CIF</th>
+      <th scope="col">Razon Social</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">EMAIL</th>
+      <th scope="col">Telefono</th>
+     
+      <th scope="col"><a class="btn btn-primary btn-sm" href="/proveedor/nuevo" role="button">Nuevo</a></th>
+    </tr>
+  </thead>
+  <tbody>    
+
+        {{#each proveedores}}
+        <tr>
+            <td>{{DNI}}</td>
+            <td>{{razonsocial}}</td>
+            <td>{{nombre}}</td>
+             <td>{{apellido}}</td>
+            <td>{{email}}</td>       
+            <td>{{telefono}}</td>     
+            
+            <td><a class="btn btn-primary btn-sm" href="/proveedor/{{DNI}}" role="button">Editar</a>            
+            <a class="btn btn-danger btn-sm" name="operacion" value="Borrar" href="/proveedor/borrar/{{DNI}}" role="button">Borrar</a></td>
+
+        </tr>
+        {{/each}}
+       
+
+  </tbody>
+</table>
+

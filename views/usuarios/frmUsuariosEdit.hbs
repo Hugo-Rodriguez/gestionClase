@@ -3,16 +3,17 @@
     <div class="container m-4 p-2 border border-primary">
 
         <h1 class="text-center">Registro de Usuario</h1>
+         <img src="img/imgUsuarios/batman.png" alt="hulk" class="img-thumbnail">
 
         <div class="row">
             <div class="col-3">
                 <div class="form-group">
                     <label for="DNI">DNI:</label>
-                    <input type="Text" class="form-control" name="DNI" placeholder="DNI...." value="{{ usuarios.DNI }}">
+                    <input type="Text" class="form-control" name="DNI" placeholder="DNI...." value="{{ usuarios.DNI }}"
+                        readonly>
                 </div>
-            </div>
+            </div>          
         </div>
-
 
         <div class="row">
             <div class="col-6">
@@ -113,9 +114,9 @@
 
             <div class="col-3">
                 <div class="form-group border border-success p-2">
-                    <label class="text-center"for="exampleFormControlSelect1">Tipo de Usuario</label>
-                    <select class="form-control" name="tipo" id="exampleFormControlSelect1">                        
-                         <option value="{{usuarios.tipo}}" selected="selected">{{usuarios.tipo}}</option>                        
+                    <label class="text-center" for="exampleFormControlSelect1">Tipo de Usuario</label>
+                    <select class="form-control" name="tipo" id="exampleFormControlSelect1">
+                        <option value="{{usuarios.tipo}}" selected="selected">{{usuarios.tipo}}</option>
                         <option value="Basico">Basico</option>
                         <option value="Admin">Admin</option>
                     </select>

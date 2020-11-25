@@ -6,6 +6,7 @@ var path = require('path');
 
 var logger = require('morgan');
 var hbs = require('hbs');
+require('./hbs/helpers');
 
 var cookieParser = require("cookie-parser");
 var cookieSession = require('cookie-session');
@@ -14,6 +15,7 @@ var cookieSession = require('cookie-session');
 var indexRouter = require('./routes/index');
 var clientesRouter = require('./routes/routes.clientes');
 var usuariosRouter = require('./routes/routes.usuarios');
+var ProveedorRouter = require('./routes/routes.proveedor');
 var loginRouter = require('./routes/loginEmpleado');
 
 // Database
@@ -30,6 +32,7 @@ hbs.registerPartials(__dirname + '/views/parciales', function (err) {});
 
 // static folder
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(__dirname + '/public'));
 
 
 app.use(logger('dev'));
@@ -56,6 +59,7 @@ maxAge: 5 * 60 * 1000//caducidad [milisegundos]
 app.use('/', indexRouter);
 app.use('/cliente', clientesRouter);
 app.use('/usuario', usuariosRouter);
+app.use('/proveedor', ProveedorRouter);
 app.use('/loginEmpleado', loginRouter);
 
 

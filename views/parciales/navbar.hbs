@@ -1,7 +1,7 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Gestión</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -10,42 +10,68 @@
       {{!-- <li class="nav-item active">
         <a class="nav-link" href="/loginEmpleado">Login<span class="sr-only">(current)</span></a>
       </li>       --}}
+
+      {{!-- clientes --}}
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/cliente" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/cliente" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Clientes
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/cliente/nuevo">Nuevo</a>
-            {{!-- <a class="dropdown-item" href="/cliente/editar/{{DNI}}">Editar</a> --}}
-        
+          {{!-- <a class="dropdown-item" href="/cliente/editar/{{DNI}}">Editar</a> --}}
+
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/cliente/listado">Listado</a>
         </div>
       </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/usuario" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+      {{!-- Uusarios --}}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/usuario" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Usuarios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/usuario/nuevo">Nuevo</a>                   
+          <a class="dropdown-item" href="/usuario/nuevo">Nuevo</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/usuario/listado">Listado</a>
         </div>
       </li>
+
+      {{!-- Proveedores --}}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/proveedor" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Proveedores
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/proveedor/nuevo">Nuevo</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/proveedor/listado">Listado</a>
+        </div>
+      </li>
+
+
+
+      
+      
       {{!-- <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </li> --}}
     </ul>
-    
-    <form class="form-inline my-2 my-lg-0">       
+
+    <form class="form-inline my-2 my-lg-0">
 
       {{!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
-       {{#if session.usuario}}
-         <span class="align-baseline"><p  class="mr-3 text-light bg-dark text-uppercase">{{session.usuario.nombre}}</p></span>
-      
+      {{#if session.usuario}}
+      <span class="align-baseline">
+        <p class="mr-3 text-light bg-dark text-uppercase">{{session.usuario.nombre}}</p>
+      </span>
+
       {{/if}}
 
-      <a class="btn btn-primary" onclick="desactivar()"  id="btnCliente" href="/loginEmpleado" role="button">USUARIOS</a>
+      <a class="btn btn-primary" onclick="desactivar()" id="btnCliente" href="/loginEmpleado" role="button">USUARIOS</a>
 
 
 
@@ -53,7 +79,7 @@
       {{!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Clientes</button>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Usuarios</button> --}}
 
-    
+
 
 
     </form>
@@ -64,9 +90,8 @@
 
 <script>
 
-function desactivar(){
-  document.getElementById('btnUsuario').style.display = 'none';
-}
+  function desactivar() {
+    document.getElementById('btnUsuario').style.display = 'none';
+  }
 
 </script>
-

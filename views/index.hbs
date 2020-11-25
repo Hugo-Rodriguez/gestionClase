@@ -1,13 +1,23 @@
- <div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4">{{ title}}</h1>
-    <p class="lead"> Proyecto:  {{ title }}.</p>
+    <p class="lead"> Proyecto: {{ title }}.</p>
   </div>
 
   {{#if session }}
-    <h4>{{session.usuario.nombre}}</h4>
+  <h4>{{session.usuario.nombre}}</h4>
   {{/if}}
-  
+
+  <div class="row justify-content-center h-100">
+
+    <div class="card mb-3" style="width: 15em;">
+      <img class="card-img-top" src="img/imgUsuarios/batman.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">BATMAN</h5>
+        <p class="card-text">Ejemplo de tarjeta.</p>
+        <a href="#" class="btn btn-primary">Activar</a>
+      </div>
+    </div>
+  </div>
+
 </div>
-
-
