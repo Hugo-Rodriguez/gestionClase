@@ -69,7 +69,7 @@ router.get("/:id", (req, res) => {
 router.post("/:id", (req, res) => { 
   let password = req.body.password;
   let repassword = req.body.repassword;
-  // if (password == repassword) {
+  if (password == repassword) {
     Usuarios.update(
       {
         nombre: req.body.nombre,
@@ -101,9 +101,9 @@ router.post("/:id", (req, res) => {
           err,
         });
       });
-    // }else{
-    //   var error = 'La contraseñas no coinciden';
-    // }  
+   }else{
+     var error = 'La contraseñas no coinciden';
+   }  
 });
 
 // DELETE un Usuario
