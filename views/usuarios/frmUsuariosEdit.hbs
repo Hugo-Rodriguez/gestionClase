@@ -3,7 +3,7 @@
     <div class="container m-4 p-2 border border-primary">
 
         <h1 class="text-center">Registro de Usuario</h1>
-         <img src="img/imgUsuarios/batman.png" alt="hulk" class="img-thumbnail">
+        <img src="img/imgUsuarios/batman.png" alt="hulk" class="img-thumbnail">
 
         <div class="row">
             <div class="col-3">
@@ -12,7 +12,15 @@
                     <input type="Text" class="form-control" name="DNI" placeholder="DNI...." value="{{ usuarios.DNI }}"
                         readonly>
                 </div>
-            </div>          
+            </div>
+            <div class="col-3">
+                <div class="form-group col-3">
+                    <label for="foto">Elegir Imagen</label>
+                    <input type="file" class="form-control-file" name='foto' accept="image/png, image/jpg"
+                        value='{{usuarios.foto}}' id="foto">
+                    <label>{{usuarios.foto}}</label>
+                </div>
+            </div>
         </div>
 
         <div class="row">

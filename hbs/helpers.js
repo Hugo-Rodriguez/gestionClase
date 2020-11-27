@@ -2,17 +2,17 @@
 
 const hbs = require('hbs');
 
-let nombre = "Rocio / Manuel / Hugo";
+let nombrePie = "Rocio / Manuel / Hugo";
 
 
 hbs.registerHelper('getAnio', () => {
     return new Date().getFullYear();
 });
 hbs.registerHelper('nombreCompleto', () => {
-    return nombre;
+    return nombrePie;
 });
-hbs.registerHelper('nombre', () => {
-    return nombre ;
+hbs.registerHelper('nombrePie', () => {
+    return nombrePie ;
 });
 
 hbs.registerHelper('capitalizar', ( texto )  => {
